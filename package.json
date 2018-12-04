@@ -1,11 +1,11 @@
 {
-  "name": "wjb-webpack4-vue-mobile",
+  "name": "wjb-webpack4-react-dva",
   "version": "1.0.0",
   "description": "a mobile stage\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[Dweb \u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001bmobile stage base on vue",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "cross-env webpack-dev-server --config build/webpack.dev.conf.js",
+    "start": "cross-env webpack-dev-server --config build/webpack.dev.conf.js",
     "build": "cross-env webpack --config build/webpack.prod.conf.js"
   },
   "author": "wjb",
@@ -20,6 +20,7 @@
     "@babel/preset-env": "^7.1.6",
     "@babel/preset-react": "^7.0.0",
     "antd": "^3.10.8",
+    "apidoc": "^0.17.7",
     "autoprefixer": "^9.3.1",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.4",
@@ -55,7 +56,8 @@
     "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10",
-    "webpack-merge": "^4.1.4"
+    "webpack-merge": "^4.1.4",
+    "yarn": "^1.12.3"
   },
   "dependencies": {
     "react": "^16.6.0",

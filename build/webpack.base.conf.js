@@ -8,6 +8,12 @@ module.exports={
     entry:{
         main:'./src/index.js',//入口起点(entry point)指示 webpack 应该使用哪个模块，来作为构建其内部依赖图的开始。进入入口起点后，webpack 会找出有哪些模块和库是入口起点（直接和间接）依赖的
     },
+    resolve:{
+        extensions:['.ts','.tsx','.js','.json'],
+        alias:{
+            '@':SRC_PATH
+        }
+    },
     module:{
         rules:[
             {
@@ -19,7 +25,15 @@ module.exports={
             },
             {
                 test:/\.tsx?$/,
-                use:'ts-loader'
+                use: [
+                    {
+                      loader: require.resolve('ts-loader'),
+                      options: {
+                        // disable type checker - we will use it in fork plugin
+                        transpileOnly: true,
+                      },
+                    },
+                  ],
             },
             {
                 test:/\.(woff|svg|eot|woff2|tff)$/,

@@ -6,7 +6,9 @@
         "target":"es5",
         //是不是允许js语法
         "allowJs": true,
-        "jsx": "react"
+        "jsx": "react",
+        "sourceMap": true,
+        "declaration": false,
     },
     "include":[
         "./src/*"

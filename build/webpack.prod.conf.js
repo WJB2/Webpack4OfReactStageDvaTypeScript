@@ -18,6 +18,7 @@ module.exports=merge(baseWebpackConfig,{
         filename:"js/[name].[hash].js",
         path:DIST_PATH
     },
+    devtool:'inline-source-map',
     module:{
         rules:[
             {
@@ -25,16 +26,16 @@ module.exports=merge(baseWebpackConfig,{
                 use:[
                     MiniCssExtractPlugin.loader,
                     {loader:'css-loader'},
-                    {loader:"postcss-loader"}
+                    {loader:"postcss-loader"},
                 ]
             },
             {
                 test:/\.(sc|sa)ss$/,
                 use:[
                     MiniCssExtractPlugin.loader,
-                    {loader:'css-loader'},
+                    {loader:'css-loader',options:{modules:true,localIdentName: '[name]__[local]__[hash:base64:5]',camelCase:true}},
                     {loader:"sass-loader"},
-                    {loader:"postcss-loader"}
+                    {loader:"postcss-loader"},
                 ]
             },
             {
@@ -43,7 +44,7 @@ module.exports=merge(baseWebpackConfig,{
                     MiniCssExtractPlugin.loader,
                     {loader:'css-loader'},
                     {loader:'less-loader'},
-                    {loader:"postcss-loader"}
+                    {loader:"postcss-loader"},
                 ]
             },
             {
@@ -81,7 +82,7 @@ module.exports=merge(baseWebpackConfig,{
         }),
         new MiniCssExtractPlugin({//分离css
             filename:"css/[name].[chunkhash:8].css",
-            chunkFilename:"css/[id].[hash]css"
+            chunkFilename:"css/[id].[hash].css"
         })
     ]
 });

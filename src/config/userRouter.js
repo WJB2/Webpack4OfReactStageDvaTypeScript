@@ -1,8 +1,8 @@
 export default [
     {
-        path:'/home',
+        path:'/',
         models:['home/home'],
         isExact:true,
-        component:()=>import('../routes/home/HomeIndex.tsx'),
+        component:()=>import('@/routes/home/HomeIndex.tsx'),
     },
 ];

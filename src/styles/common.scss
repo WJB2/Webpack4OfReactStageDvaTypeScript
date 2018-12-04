@@ -1,4 +1,4 @@
-$colorA:"#DDD";
+ 
 
 @function pxToRem($px){//$px为需要转换的字号
     @return $px / 20px * 1rem;

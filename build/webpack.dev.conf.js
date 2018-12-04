@@ -18,7 +18,7 @@ module.exports=merge(baseWebpackConfig,{
             {
                 test:/\.css$/,
                 use:[
-                    {loader:"style-loader"},
+                    {loader:"style-loader"},//通过注入<style>标记将CSS添加到DOM
                     {loader:"css-loader"},
                     {loader:"typed-css-modules-loader",options:{modules:true}}
                 ],
@@ -28,12 +28,11 @@ module.exports=merge(baseWebpackConfig,{
                 exclude:[/node_modules/],
                 use:[
                     {loader:"style-loader"},
-                    {loader:"css-loader",options:{modules:true,localIdentName: '[name]__[local]__[hash:base64:5]'}},
+                    {loader:"css-loader",options:{modules:true,localIdentName: '[name]__[local]__[hash:base64:5].css'}},
                     {loader:"sass-loader"},
                     {loader:"typed-css-modules-loader",options:{modules:true}}
                     // {loader: 'typings-for-css-modules-loader',options: {modules: true,namedExport: true}}
                 ],
-           
             },
             {
                 test:/\.less$/,
@@ -110,14 +109,7 @@ module.exports=merge(baseWebpackConfig,{
         }),
         new webpack.LoaderOptionsPlugin({
             options:{
-                // postcss:[
-                //     require('postcss-plugin-px2rem')({
-                //         rootValue:75,
-                //         selectorBlackList:['html'],
-                //         mediaQuery:true,
-                //         propBlackList:['75px']
-                //     })
-                // ],
+               
             }
         })
     ]
